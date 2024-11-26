@@ -9,7 +9,16 @@ class goodsService {
 		// 写咱们增删改查的地方  增
 		console.log(ctxbody);
 		// goodspicture:ctxbody.goodspicture
-		const res = await Goods.create({ goodsname: ctxbody.goodsname, content: ctxbody.goodscontent, cateid: ctxbody.cateid, status: ctxbody.status, goodsusername: ctxbody.goodsusername, });
+		const res = await Goods.create({
+			goodsname: ctxbody.goodsname,
+			content: ctxbody.goodscontent,
+			cateid: ctxbody.cateid, 
+			status: ctxbody.status,
+			goodsusername: ctxbody.goodsusername,
+			price: ctxbody.price,
+			newprice: ctxbody.newprice,
+			school: ctxbody.school,
+		});
 		console.log("create success")
 		console.log(res);
 		// 这是一个32位 不规则的字符串
@@ -139,11 +148,11 @@ class goodsService {
 		goodsname && Object.assign(whereOpt, {
 			content
 		})
-		
+
 		content && Object.assign(whereOpt, {
 			content
 		})
-		
+
 		cateid && Object.assign(whereOpt, {
 			content
 		})

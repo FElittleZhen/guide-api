@@ -1,68 +1,68 @@
 // sequelize 的数据类型
 // 字符串  整数
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 const seq = require('../db/seq');
 
 // 第一个参数 是咱们数据表的名字  第二个是个对象  也就是咱们表当中每个字段的定义
-const Goods = seq.define('zd_goods',{
+const Goods = seq.define('zd_goods', {
 	//id 会被咱们的sequelize 自动的创建并且维护
-		goodsname:{
-			type:DataTypes.STRING,
-			allowNull:true,
-			comment:'商品介绍'
-		},
-		content:{
-			type:DataTypes.STRING,
-			allowNull:true,
-			comment:'商品介绍'
-		},
-		goodspicture:{
-			type:DataTypes.CHAR,
-			allowNull:true,
-			comment:'商品照片'
-		},
-		goodsusername:{
-			type:DataTypes.STRING,
-			allowNull:true,
-			defaultValue:0,
-			comment:'卖家用户名'
-		},
-		cateid:{
-			type:DataTypes.INTEGER,
-			allowNull:true,
-			defaultValue:0,
-			comment:'商品分类'
-		},
-		pageview:{
-			type:DataTypes.INTEGER,
-			allowNull:true,
-			defaultValue:0,
-			comment:'浏览量'
-		},
-		price:{
-			type:DataTypes.INTEGER,
-			allowNull:true,
-			defaultValue:0,
-			comment:'原价'
-		},
-		newprice:{
-			type:DataTypes.INTEGER,
-			allowNull:true,
-			defaultValue:0,
-			comment:'二手价格'
-		},
-		school:{
-			type:DataTypes.INTEGER,
-			allowNull:true,
-			// defaultValue:0,
-			comment:'二手价格'
-		},
-		status:{
-			type:DataTypes.BOOLEAN,
-			allowNull:true,
-			// defaultValue:0,
-			comment:'0默认下架,1是上架'
-		},
+	goodsname: {
+		type: DataTypes.STRING,
+		allowNull: true,
+		comment: '商品介绍'
+	},
+	content: {
+		type: DataTypes.STRING,
+		allowNull: true,
+		comment: '商品介绍'
+	},
+	goodspicture: {
+		type: DataTypes.CHAR,
+		allowNull: true,
+		comment: '商品照片'
+	},
+	goodsusername: {
+		type: DataTypes.STRING,
+		allowNull: true,
+		defaultValue: 0,
+		comment: '卖家用户名'
+	},
+	cateid: {
+		type: DataTypes.INTEGER,
+		allowNull: true,
+		defaultValue: 0,
+		comment: '商品分类'
+	},
+	pageview: {
+		type: DataTypes.INTEGER,
+		allowNull: true,
+		defaultValue: 0,
+		comment: '浏览量'
+	},
+	price: {
+		type: DataTypes.INTEGER,
+		allowNull: true,
+		defaultValue: 0,
+		comment: '原价'
+	},
+	newprice: {
+		type: DataTypes.INTEGER,
+		allowNull: true,
+		defaultValue: 0,
+		comment: '二手价格'
+	},
+	school: {
+		type: DataTypes.STRING,
+		allowNull: true,
+		// defaultValue: 0,
+		comment: '发布者所在的学校'
+	},
+	status: {
+		type: DataTypes.BOOLEAN,
+		allowNull: true,
+		// defaultValue:0,
+		comment: '0默认下架,1是上架'
+	},
 
 
 });
