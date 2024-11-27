@@ -1,7 +1,7 @@
 // 我这个模块 是定义类  还是像以往那么  const
 // 我这里面  有很多的方法  整个user 板块的方法 都写再这个类当中
 const jwt = require('jsonwebtoken');
-const {logoutUser,createUser,getUserInfo,DelteUsers,UpdateUser,Listdata,getUsertoken,LogOut,SetStatus,Updateinfo} = require('../service/user.service');
+const {getotherUserInfo,logoutUser,createUser,getUserInfo,DelteUsers,UpdateUser,Listdata,getUsertoken,LogOut,SetStatus,Updateinfo} = require('../service/user.service');
 const md5 = require('md5');
 class UserController {
 	//为什么要用async 因为node.js 异步的
@@ -188,7 +188,29 @@ class UserController {
 		}
 		
 	}
-	
+	async GetOtherInfor(ctx, next){
+		const data = ctx.request.body;
+		const token = ctx.params;
+		//检查一下 我数据库当中存在不存在这个用户啊
+		const res = await getotherUserInfo(data.goodsusername);
+		//const result = jwt.verify(token, secret);
+			if(res){
+				ctx.body = {
+					code: 200,
+					message: 'token验证成功',
+					data: res,
+					token : res.token
+				};
+			}else{
+				ctx.body = {
+					code: 201,
+					message: 'token过期请重新登录',
+					data: {}
+				};
+			}
+			
+		
+	}
 	async GetInfor(ctx, next){
 		const data = ctx.request.body;
 		const token = ctx.params;
