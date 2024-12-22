@@ -8,6 +8,8 @@ const userRouter =require('../router/cate.router');
 const goodsRouter =require('../router/goods.router');
 const reviewRouter = require('../router/review.router');
 const orderRouter = require('../router/order.router');
+const articleRouter = require('../router/article.router');
+
 
 const cors = require('koa2-cors');
 const router = require('koa-router')();
@@ -103,6 +105,7 @@ app.use(cateRouter.routes());
 app.use(goodsRouter.routes());
 app.use(reviewRouter.routes());
 app.use(orderRouter.routes());
+app.use(articleRouter.routes());
 // app 有一个函数listen  第一个参数  为我即将开启的端口号
 // 函数
 // 端口号  是一成不变的吗  肯定不是啊
