@@ -2,7 +2,7 @@
  * @Author: wangzhen12138 1615777455@qq.com
  * @Date: 2024-12-21 17:48:58
  * @LastEditors: wangzhen12138 1615777455@qq.com
- * @LastEditTime: 2024-12-22 16:36:59
+ * @LastEditTime: 2024-12-22 18:18:47
  * @FilePath: \guide-api\src\model\article.model.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,29 +12,13 @@ const { DataTypes } = require('sequelize');
 const seq = require('../db/seq');
 
 // 第一个参数 是咱们数据表的名字  第二个是个对象  也就是咱们表当中每个字段的定义
-const Article = seq.define('zd_article', {
-    //id 会被咱们的sequelize 自动的创建并且维护
-    artTitle: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        comment: '文章标题'
-    },
-    articleContent: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        comment: '文章内容'
-    },
+const Article = seq.define('zd_arttabname', {
     artTabName: {
         type: DataTypes.STRING,
         allowNull: true,
         defaultValue: 0,
-        comment: '文章分类'
-    },
-    pageview: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        defaultValue: 0,
-        comment: '文章浏览量'
+        comment: '文章分类',
+        unique: true, // 设置唯一主键
     },
     status: {
         type: DataTypes.BOOLEAN,
